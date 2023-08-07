@@ -52,9 +52,9 @@ class _PremiumScreenState extends State<PremiumScreen> {
         timer.cancel();
         // stopBeepEffect();
         setState(() {
-        beepTimer?.cancel();
+          beepTimer?.cancel();
           beepTimer = null;
-           isCountingDown = false;
+          isCountingDown = false;
           countDown = 5;
           isImageVisible = true;
         });
@@ -63,7 +63,6 @@ class _PremiumScreenState extends State<PremiumScreen> {
     });
   }
 
-  
   void stopCountDown() {
     stopBeepEffect();
 
@@ -167,306 +166,279 @@ class _PremiumScreenState extends State<PremiumScreen> {
                     children: [
                       Column(
                         children: [
-                          ElevatedButton(
-                            onPressed: () async {
-                              Navigator.push(
-                                context,
-                                PageRouteAnimator(
-                                  child: const MedicalresponseScreen(),
-                                  routeAnimation:
-                                      RouteAnimation.topToBottomWithScale,
-                                  settings: const RouteSettings(),
-                                  curve: Curves.slowMiddle,
-                                  duration: const Duration(milliseconds: 500),
-                                  reverseDuration:
-                                      const Duration(milliseconds: 200),
+                          SizedBox(
+                            width: 150,
+                            height: 100,
+                            child: ElevatedButton(
+                              onPressed: () async {
+                                Navigator.push(
+                                  context,
+                                  PageRouteAnimator(
+                                    child: const MedicalresponseScreen(),
+                                    routeAnimation:
+                                        RouteAnimation.topToBottomWithScale,
+                                    settings: const RouteSettings(),
+                                    curve: Curves.slowMiddle,
+                                    duration: const Duration(milliseconds: 500),
+                                    reverseDuration:
+                                        const Duration(milliseconds: 200),
+                                  ),
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
                               ),
-                            ),
-                            child: Column(
-                              children: [
-                                const SizedBox(height: 6),
-                                Image.asset(
-                                  'assets/profile.jpeg',
-                                  width: 80,
-                                  height: 50,
-                                  fit: BoxFit.fitWidth,
-                                ),
-                                Text(
-                                  "Medical",
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.local_hospital_outlined,
+                                    size: 65,
+                                    color: Colors.red.shade800,
                                   ),
-                                ),
-                                Text(
-                                  " Response",
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
+                                  Text(
+                                    "Medical Response",
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(height: 6),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                           SizedBox(height: 10),
-                          ElevatedButton(
-                            onPressed: () async {
-                              Navigator.push(
-                                context,
-                                PageRouteAnimator(
-                                  child: const MedicalresponseScreen(),
-                                  routeAnimation:
-                                      RouteAnimation.topToBottomWithScale,
-                                  settings: const RouteSettings(),
-                                  curve: Curves.slowMiddle,
-                                  duration: const Duration(milliseconds: 500),
-                                  reverseDuration:
-                                      const Duration(milliseconds: 200),
+                          SizedBox(
+                            width: 150,
+                            height: 100,
+                            child: ElevatedButton(
+                              onPressed: () async {
+                                Navigator.push(
+                                  context,
+                                  PageRouteAnimator(
+                                    child: const MedicalresponseScreen(),
+                                    routeAnimation:
+                                        RouteAnimation.topToBottomWithScale,
+                                    settings: const RouteSettings(),
+                                    curve: Curves.slowMiddle,
+                                    duration: const Duration(milliseconds: 500),
+                                    reverseDuration:
+                                        const Duration(milliseconds: 200),
+                                  ),
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
                               ),
-                            ),
-                            child: Column(
-                              children: [
-                                const SizedBox(height: 6),
-                                Image.asset(
-                                  'assets/shop.jpeg',
-                                  width: 80,
-                                  height: 50,
-                                  fit: BoxFit.fitWidth,
-                                ),
-                                Text(
-                                  "Armed",
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.security_outlined,
+                                    size: 65,
+                                    color: Colors.red.shade800,
                                   ),
-                                ),
-                                Text(
-                                  " Response",
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
+                                  Text(
+                                    "Armed Response",
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(height: 6),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                           SizedBox(height: 10),
-                          ElevatedButton(
-                            onPressed: () async {
-                              Navigator.push(
-                                context,
-                                PageRouteAnimator(
-                                  child: const MedicalresponseScreen(),
-                                  routeAnimation:
-                                      RouteAnimation.topToBottomWithScale,
-                                  settings: const RouteSettings(),
-                                  curve: Curves.slowMiddle,
-                                  duration: const Duration(milliseconds: 500),
-                                  reverseDuration:
-                                      const Duration(milliseconds: 200),
+                          SizedBox(height: 100, width:150,
+                            child: ElevatedButton(
+                              onPressed: () async {
+                                Navigator.push(
+                                  context,
+                                  PageRouteAnimator(
+                                    child: const MedicalresponseScreen(),
+                                    routeAnimation:
+                                        RouteAnimation.topToBottomWithScale,
+                                    settings: const RouteSettings(),
+                                    curve: Curves.slowMiddle,
+                                    duration: const Duration(milliseconds: 500),
+                                    reverseDuration:
+                                        const Duration(milliseconds: 200),
+                                  ),
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
                               ),
-                            ),
-                            child: Column(
-                              children: [
-                                const SizedBox(height: 6),
-                                Image.asset(
-                                  'assets/transit.jpeg',
-                                  width: 80,
-                                  height: 50,
-                                  fit: BoxFit.fitWidth,
-                                ),
-                                Text(
-                                  "Cash-in",
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.payments_outlined,
+                                    size: 65,
+                                    color: Colors.red.shade800,
                                   ),
-                                ),
-                                Text(
-                                  " Transit",
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
+                                  const SizedBox(height: 1),
+                                  Text(
+                                    "Cash-in Transit",
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(height: 6),
-                              ],
-                            ),
+                                ],
+                              ),
+                             ),
                           ),
                         ],
                       ),
                       Column(
                         children: [
-                          ElevatedButton(
-                            onPressed: () async {
-                              Navigator.push(
-                                context,
-                                PageRouteAnimator(
-                                  child: const MedicalresponseScreen(),
-                                  routeAnimation:
-                                      RouteAnimation.topToBottomWithScale,
-                                  settings: const RouteSettings(),
-                                  curve: Curves.slowMiddle,
-                                  duration: const Duration(milliseconds: 500),
-                                  reverseDuration:
-                                      const Duration(milliseconds: 200),
+                          SizedBox(
+                            width: 150,
+                            height: 100,
+                            child: ElevatedButton(
+                              onPressed: () async {
+                                Navigator.push(
+                                  context,
+                                  PageRouteAnimator(
+                                    child: const MedicalresponseScreen(),
+                                    routeAnimation:
+                                        RouteAnimation.topToBottomWithScale,
+                                    settings: const RouteSettings(),
+                                    curve: Curves.slowMiddle,
+                                    duration: const Duration(milliseconds: 500),
+                                    reverseDuration:
+                                        const Duration(milliseconds: 200),
+                                  ),
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
                               ),
-                            ),
-                            child: Column(
-                              children: [
-                                const SizedBox(height: 6),
-                                Image.asset(
-                                  'assets/policy.jpeg',
-                                  width: 80,
-                                  height: 50,
-                                  fit: BoxFit.fitWidth,
-                                ),
-                                Text(
-                                  "Fire",
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
+                              child: Column(
+                                children: [
+                                  const SizedBox(height: 6),
+                                  Icon(
+                                    Icons.fire_extinguisher_outlined,
+                                    size: 65,
+                                    color: Colors.red.shade800,
                                   ),
-                                ),
-                                Text(
-                                  " Response",
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
+                                  const SizedBox(height: 6),
+                                  Text(
+                                    "Fire Response",
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(height: 6),
-                              ],
+                                  const SizedBox(height: 6),
+                                ],
+                              ),
                             ),
                           ),
                           SizedBox(height: 10),
-                          ElevatedButton(
-                            onPressed: () async {
-                              Navigator.push(
-                                context,
-                                PageRouteAnimator(
-                                  child: const MedicalresponseScreen(),
-                                  routeAnimation:
-                                      RouteAnimation.topToBottomWithScale,
-                                  settings: const RouteSettings(),
-                                  curve: Curves.slowMiddle,
-                                  duration: const Duration(milliseconds: 500),
-                                  reverseDuration:
-                                      const Duration(milliseconds: 200),
+                          SizedBox(
+                            height: 100,
+                            width: 150,
+                            child: ElevatedButton(
+                              onPressed: () async {
+                                Navigator.push(
+                                  context,
+                                  PageRouteAnimator(
+                                    child: const SpecialrequestScreen(),
+                                    routeAnimation:
+                                        RouteAnimation.topToBottomWithScale,
+                                    settings: const RouteSettings(),
+                                    curve: Curves.slowMiddle,
+                                    duration: const Duration(milliseconds: 500),
+                                    reverseDuration:
+                                        const Duration(milliseconds: 200),
+                                  ),
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
                               ),
-                            ),
-                            child: Column(
-                              children: [
-                                const SizedBox(height: 6),
-                                Image.asset(
-                                  'assets/escort.jpeg',
-                                  width: 80,
-                                  height: 50,
-                                  fit: BoxFit.fitWidth,
-                                ),
-                                Text(
-                                  "Private",
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.add_circle_outline,
+                                    size: 65,
+                                    color: Colors.red.shade800,
                                   ),
-                                ),
-                                Text(
-                                  "Escort",
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
+                                  const SizedBox(height: 1),
+                                  Text(
+                                    "Special Request",
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(height: 6),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                           SizedBox(height: 10),
-                          ElevatedButton(
-                            onPressed: () async {
-                              Navigator.push(
-                                context,
-                                PageRouteAnimator(
-                                  child: const SpecialrequestScreen(),
-                                  routeAnimation:
-                                      RouteAnimation.topToBottomWithScale,
-                                  settings: const RouteSettings(),
-                                  curve: Curves.slowMiddle,
-                                  duration: const Duration(milliseconds: 500),
-                                  reverseDuration:
-                                      const Duration(milliseconds: 200),
+                          SizedBox(
+                            height: 100,
+                            width: 150,
+                            child: ElevatedButton(
+                              onPressed: () async {
+                                Navigator.push(
+                                  context,
+                                  PageRouteAnimator(
+                                    child: const SpecialrequestScreen(),
+                                    routeAnimation:
+                                        RouteAnimation.topToBottomWithScale,
+                                    settings: const RouteSettings(),
+                                    curve: Curves.slowMiddle,
+                                    duration: const Duration(milliseconds: 500),
+                                    reverseDuration:
+                                        const Duration(milliseconds: 200),
+                                  ),
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
                               ),
-                            ),
-                            child: Column(
-                              children: [
-                                const SizedBox(height: 6),
-                                Image.asset(
-                                  'assets/party.jpg',
-                                  width: 80,
-                                  height: 50,
-                                  fit: BoxFit.fitWidth,
-                                ),
-                                Text(
-                                  "Special",
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.airline_seat_recline_extra_outlined,
+                                    size: 65,
+                                    color: Colors.red.shade800,
                                   ),
-                                ),
-                                Text(
-                                  "Request",
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
+                                  const SizedBox(height: 1),
+                                  Text(
+                                    "Private Escort",
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(height: 6),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -513,11 +485,14 @@ class _PremiumScreenState extends State<PremiumScreen> {
               });
             },
             destinations: [
-              NavigationDestination(icon: Icon(Icons.menu_outlined), label: "Menu"),
-              NavigationDestination(icon: Icon(Icons.home_outlined), label: "Home"),
+              NavigationDestination(
+                  icon: Icon(Icons.menu_outlined), label: "Menu"),
+              NavigationDestination(
+                  icon: Icon(Icons.home_outlined), label: "Home"),
               NavigationDestination(
                   icon: Icon(Icons.menu_book_outlined), label: "Support"),
-              NavigationDestination(icon: Icon(Icons.person_outlined), label: "Profile")
+              NavigationDestination(
+                  icon: Icon(Icons.person_outlined), label: "Profile")
             ]),
       ),
       floatingActionButton: SizedBox(

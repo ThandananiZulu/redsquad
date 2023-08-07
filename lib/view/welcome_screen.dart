@@ -168,9 +168,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     children: [
                       Column(
                         children: [
-                          SizedBox(
-                            width: 150, // Adjust the width as needed
-                            height: 120, // Adjust the height as needed
+                        SizedBox(
+                            width: 150,
+                            height: 120,
                             child: ElevatedButton(
                               onPressed: () async {
                                 Navigator.push(
@@ -196,14 +196,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Image.asset(
-                                    'assets/profile.jpeg',
-                                    width:
-                                        140, // Adjust the width as needed to control the size
-                                    height:
-                                        100, // Adjust the height as needed to control the size
-                                    fit: BoxFit
-                                        .cover, // Image will fill the available space
+                                  Icon(
+                                    Icons.local_hospital_outlined,
+                                    size: 80,
+                                    color: Colors.red.shade800,
                                   ),
                                   Text(
                                     "Medical Response",
@@ -212,21 +208,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  // Text(
-                                  //   "Response",
-                                  //   style: const TextStyle(
-                                  //     color: Colors.black,
-                                  //     fontWeight: FontWeight.bold,
-                                  //   ),
-                                  // ),
                                 ],
                               ),
                             ),
                           ),
                           SizedBox(height: 10),
                           SizedBox(
-                            width: 150, // Adjust the width as needed
-                            height: 120, // Ad
+                            width: 150,
+                            height: 120,
                             child: ElevatedButton(
                               onPressed: () async {
                                 Navigator.push(
@@ -250,13 +239,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                 ),
                               ),
                               child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  const SizedBox(height: 6),
-                                  Image.asset(
-                                    'assets/shop.jpeg',
-                                    width: 150,
-                                    height: 92,
-                                    fit: BoxFit.fill,
+                                  Icon(
+                                    Icons.security_outlined,
+                                    size: 80,
+                                    color: Colors.red.shade800,
                                   ),
                                   Text(
                                     "Armed Response",
@@ -265,25 +253,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  // Text(
-                                  //   " ",
-                                  //   style: const TextStyle(
-                                  //     color: Colors.black,
-                                  //     fontWeight: FontWeight.bold,
-                                  //   ),
-                                  // ),
-                                  const SizedBox(height: 6),
                                 ],
                               ),
                             ),
                           ),
-                        ],
+  ],
                       ),
                       Column(
                         children: [
-                          SizedBox(
-                            width: 150, // Adjust the width as needed
-                            height: 120, 
+                        SizedBox(
+                            width: 150,
+                            height: 120,
                             child: ElevatedButton(
                               onPressed: () async {
                                 Navigator.push(
@@ -309,12 +289,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               child: Column(
                                 children: [
                                   const SizedBox(height: 6),
-                                  Image.asset(
-                                    'assets/policy.jpeg',
-                                    width: 150,
-                                    height: 92,
-                                    fit: BoxFit.fill,
+                                  Icon(
+                                    Icons.fire_extinguisher_outlined,
+                                    size: 80,
+                                    color: Colors.red.shade800,
                                   ),
+                                  const SizedBox(height: 6),
                                   Text(
                                     "Fire Response",
                                     style: const TextStyle(
@@ -328,7 +308,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             ),
                           ),
                           SizedBox(height: 10),
-                         SizedBox(
+                          SizedBox(
                             height: 120,
                             width: 150,
                             child: ElevatedButton(
@@ -357,10 +337,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Icon(
-                                    Icons.add,
-                                    size: 48,
-                                    color: Colors.black,
+                                    Icons.add_circle_outline,
+                                    size: 80,
+                                    color: Colors.red.shade800,
                                   ),
+                                  const SizedBox(height: 1),
                                   Text(
                                     "Special Request",
                                     style: const TextStyle(
@@ -372,7 +353,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               ),
                             ),
                           ),
-      ],
+     ],
                       ),
                     ],
                   ),

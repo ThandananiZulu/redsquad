@@ -151,7 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ), const SizedBox(
                             height: 45,
                           ),
-                          SizedBox(
+                         SizedBox(
                             width: double.infinity,
                             child: Padding(
                               padding: const EdgeInsets.all(9.0),
@@ -166,11 +166,20 @@ class _LoginScreenState extends State<LoginScreen> {
                                 onPressed: () {
                                   Get.to(WelcomeScreen());
                                 },
-                                child: Text("Login"),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(Icons
+                                        .login), // Add your appropriate icon here
+                                    SizedBox(
+                                        width:
+                                            8), // Add some space between icon and text
+                                    Text("Login"),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
-                         
                           SizedBox(
                             width: double.infinity,
                             child: Padding(
@@ -186,11 +195,50 @@ class _LoginScreenState extends State<LoginScreen> {
                                 onPressed: () {
                                   Get.to(PremiumScreen());
                                 },
-                                child: Text("Premium"),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(Icons
+                                        .star), // Add your appropriate icon here
+                                    SizedBox(
+                                        width:
+                                            8), // Add some space between icon and text
+                                    Text("Premium"),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
-                        ],
+                          SizedBox(
+                            width: double.infinity,
+                            child: Padding(
+                              padding: const EdgeInsets.all(9.0),
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.black,
+                                  foregroundColor: Colors.white,
+                                  elevation: 8,
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 15, horizontal: 30),
+                                ),
+                                onPressed: () {
+                                  Get.to(PremiumScreen());
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(Icons
+                                        .security), // Add your appropriate icon here
+                                    SizedBox(
+                                        width:
+                                            8), // Add some space between icon and text
+                                    Text("Security"),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+ ],
                       ),
                     ),
                   ),
