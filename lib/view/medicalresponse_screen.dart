@@ -119,7 +119,9 @@ class _MedicalresponseScreenState extends State<MedicalresponseScreen> {
           ),
         )
       ],
-      bottomNavigationBar: BottomNavigationBarController(),
+      bottomNavigationBar: BottomNavigationBarController(
+        scaffoldKey: _scaffoldKey,
+      ),
     );
   }
 }

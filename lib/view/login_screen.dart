@@ -6,6 +6,9 @@ import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 import 'package:get/get.dart';
 import 'package:redsquad/controller/login_controller.dart';
+import 'package:redsquad/view/logins/basic_login_screen.dart';
+import 'package:redsquad/view/logins/premium_login_screen.dart';
+import 'package:redsquad/view/logins/security_login_screen.dart';
 import 'package:redsquad/view/premium_screen.dart';
 import 'package:redsquad/view/security_screen.dart';
 import 'package:redsquad/view/welcome_screen.dart';
@@ -98,67 +101,68 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: <Widget>[
-                          Container(
-                            color: Colors
-                                .white, // Add white background to the field
-                            child: TextFormField(
-                              keyboardType: TextInputType.text,
-                              decoration: const InputDecoration(
-                                label: Text('Username'),
-                                contentPadding: EdgeInsets.symmetric(
-                                  vertical:
-                                      15, // Adjust the vertical padding as needed
-                                  horizontal:
-                                      15, // Adjust the horizontal padding as needed
-                                ),
-                              ),
-                              onSaved: (value) {
-                                signInData['username'] = value;
-                              },
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Username required';
-                                }
-                                return null;
-                              },
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 15,
-                          ),
-                          Container(
-                            color: Colors
-                                .white, // Add white background to the field
-                            child: TextFormField(
-                              keyboardType: TextInputType.text,
-                              decoration: const InputDecoration(
-                                label: Text('Password'),
-                                contentPadding: EdgeInsets.symmetric(
-                                  vertical:
-                                      15, // Adjust the vertical padding as needed
-                                  horizontal:
-                                      15, // Adjust the horizontal padding as needed
-                                ),
-                              ),
-                              onSaved: (value) {
-                                signInData['password'] = value;
-                              },
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Password required';
-                                }
-                                return null;
-                              },
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 45,
-                          ),
+                        SizedBox(height:21),
+                          // Container(
+                          //   color: Colors
+                          //       .white, // Add white background to the field
+                          //   child: TextFormField(
+                          //     keyboardType: TextInputType.text,
+                          //     decoration: const InputDecoration(
+                          //       label: Text('Username'),
+                          //       contentPadding: EdgeInsets.symmetric(
+                          //         vertical:
+                          //             15, // Adjust the vertical padding as needed
+                          //         horizontal:
+                          //             15, // Adjust the horizontal padding as needed
+                          //       ),
+                          //     ),
+                          //     onSaved: (value) {
+                          //       signInData['username'] = value;
+                          //     },
+                          //     validator: (value) {
+                          //       if (value == null || value.isEmpty) {
+                          //         return 'Username required';
+                          //       }
+                          //       return null;
+                          //     },
+                          //   ),
+                          // ),
+                          // const SizedBox(
+                          //   height: 15,
+                          // ),
+                          // Container(
+                          //   color: Colors
+                          //       .white, // Add white background to the field
+                          //   child: TextFormField(
+                          //     keyboardType: TextInputType.text,
+                          //     decoration: const InputDecoration(
+                          //       label: Text('Password'),
+                          //       contentPadding: EdgeInsets.symmetric(
+                          //         vertical:
+                          //             15, // Adjust the vertical padding as needed
+                          //         horizontal:
+                          //             15, // Adjust the horizontal padding as needed
+                          //       ),
+                          //     ),
+                          //     onSaved: (value) {
+                          //       signInData['password'] = value;
+                          //     },
+                          //     validator: (value) {
+                          //       if (value == null || value.isEmpty) {
+                          //         return 'Password required';
+                          //       }
+                          //       return null;
+                          //     },
+                          //   ),
+                          // ),
+                          // const SizedBox(
+                          //   height: 45,
+                          // ),
                           SizedBox(
                             width: double.infinity,
                             child: Padding(
                               padding: const EdgeInsets.only(
-                                  top: 0, left: 0, bottom: 2.0),
+                                  top: 0, left: 0, bottom: 10.0),
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   primary: Colors.blueGrey,
@@ -176,14 +180,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                   SessionManager sessionManager =
                                       new SessionManager();
                                   await sessionManager.set('role', 'basic');
-                                  Get.to(WelcomeScreen());
+                                  Get.to(BasicLoginScreen(data: {},));
                                 },
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Icon(Icons.login),
                                     SizedBox(width: 8),
-                                    Text("Login"),
+                                    Text("Basic"),
                                   ],
                                 ),
                               ),
@@ -193,7 +197,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             width: double.infinity,
                             child: Padding(
                               padding: const EdgeInsets.only(
-                                  top: 0, left: 0, bottom: 2.0),
+                                  top: 0, left: 0, bottom: 10.0),
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   primary: Colors.red,
@@ -211,7 +215,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                    SessionManager sessionManager =
                                       new SessionManager();
                                   await sessionManager.set('role', 'premium');
-                                  Get.to(PremiumScreen());
+                                  Get.to(PremiumLoginScreen(data: {},));
                                 },
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -228,7 +232,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             width: double.infinity,
                             child: Padding(
                               padding: const EdgeInsets.only(
-                                  top: 0, left: 0, bottom: 2.0),
+                                  top: 0, left: 0, bottom: 10.0),
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   primary: Colors.black,
@@ -245,7 +249,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 onPressed: () async {       SessionManager sessionManager =
                                       new SessionManager();
                                   await sessionManager.set('role', 'security');
-                                  Get.to(SecurityScreen());
+                                  Get.to(SecurityLoginScreen(data: {},));
                                 },
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,

@@ -84,6 +84,9 @@ class _CommunityScreenState extends State<CommunityScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBarController(), );
+      bottomNavigationBar: BottomNavigationBarController(
+        scaffoldKey: _scaffoldKey,
+      ),
+    );
   }
 }

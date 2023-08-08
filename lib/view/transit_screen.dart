@@ -119,7 +119,9 @@ class _TransitScreenState extends State<TransitScreen> {
           ),
         )
       ],
-      bottomNavigationBar: BottomNavigationBarController(),
+      bottomNavigationBar: BottomNavigationBarController(
+        scaffoldKey: _scaffoldKey,
+      ),
     );
   }
 }

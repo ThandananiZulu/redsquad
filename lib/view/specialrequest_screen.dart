@@ -27,7 +27,7 @@ class _SpecialrequestScreenState extends State<SpecialrequestScreen> {
   Map loginData = {"fullname": "", "username": "", "password": ""};
   bool _isExpanded = true;
   String? date;
- 
+
   var sessionManager = SessionManager();
   String? dropdownValue;
   DateTime? selectedDate;
@@ -35,6 +35,7 @@ class _SpecialrequestScreenState extends State<SpecialrequestScreen> {
     _formKey.currentState!.save();
     if (_formKey.currentState!.validate()) {}
   }
+
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
@@ -50,7 +51,6 @@ class _SpecialrequestScreenState extends State<SpecialrequestScreen> {
         date = DateFormat('yyyy-MM-dd').format(dateTime);
       });
     }
-   
   }
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -91,7 +91,7 @@ class _SpecialrequestScreenState extends State<SpecialrequestScreen> {
               SingleChildScrollView(
                 child: Column(children: [
                   Padding(
-                    padding: const EdgeInsets.all( 22),
+                    padding: const EdgeInsets.all(22),
                     child: Container(
                       alignment: Alignment.center,
                       child: Column(
@@ -127,7 +127,6 @@ class _SpecialrequestScreenState extends State<SpecialrequestScreen> {
                               return null;
                             },
                           ),
-                       
                           Padding(
                             padding: const EdgeInsets.all(50),
                             child: SizedBox(
@@ -144,7 +143,7 @@ class _SpecialrequestScreenState extends State<SpecialrequestScreen> {
                               ),
                             ),
                           ),
-                         ],
+                        ],
                       ),
                     ),
                   ),
@@ -171,10 +170,13 @@ class _SpecialrequestScreenState extends State<SpecialrequestScreen> {
                 onPressed: () {
                   Get.to(WelcomeScreen());
                 },
-                child: Text("Request Fire Response")),
+                child: Text("Request Special Service")),
           ),
         )
       ],
-      bottomNavigationBar: BottomNavigationBarController(), );
+      bottomNavigationBar: BottomNavigationBarController(
+        scaffoldKey: _scaffoldKey,
+      ),
+    );
   }
 }

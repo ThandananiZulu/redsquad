@@ -119,6 +119,9 @@ class _PrivateescortScreenState extends State<PrivateescortScreen> {
           ),
         )
       ],
-      bottomNavigationBar: BottomNavigationBarController(),   );
+      bottomNavigationBar: BottomNavigationBarController(
+        scaffoldKey: _scaffoldKey,
+      ),
+    );
   }
 }

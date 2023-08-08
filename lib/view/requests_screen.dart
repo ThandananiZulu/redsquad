@@ -140,7 +140,10 @@ class _RequestsScreenState extends State<RequestsScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBarController(),   );
+      bottomNavigationBar: BottomNavigationBarController(
+        scaffoldKey: _scaffoldKey,
+      ),
+    );
   }
 
   Widget buildPlansList() {

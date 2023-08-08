@@ -5,9 +5,13 @@ import 'package:redsquad/view/premium_screen.dart';
 import 'package:redsquad/view/profile_screen.dart';
 import 'package:redsquad/view/security_screen.dart';
 import 'package:redsquad/view/support_screen.dart';
-import 'package:redsquad/view/welcome_screen.dart'; // Make sure to import the necessary packages
+import 'package:redsquad/view/welcome_screen.dart';
 
 class BottomNavigationBarController extends StatefulWidget {
+  final GlobalKey<ScaffoldState> scaffoldKey; // Add this parameter
+
+  BottomNavigationBarController({required this.scaffoldKey}); // Constructor
+
   @override
   _BottomNavigationBarControllerState createState() =>
       _BottomNavigationBarControllerState();
@@ -15,19 +19,17 @@ class BottomNavigationBarController extends StatefulWidget {
 
 class _BottomNavigationBarControllerState
     extends State<BottomNavigationBarController> {
-  int index = 1; // Default index
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  
+  int index = 1;
   String role = "basic";
-  Future<void> getrole() async {
+
+  Future<void> getRole() async {
     SessionManager sessionManager = new SessionManager();
-     role = await sessionManager.get('role');
+    role = await sessionManager.get('role');
   }
 
   @override
   Widget build(BuildContext context) {
-
-    getrole();
+    getRole();
     return NavigationBarTheme(
       data: NavigationBarThemeData(
         indicatorColor: Colors.blue.shade100,
@@ -43,10 +45,14 @@ class _BottomNavigationBarControllerState
         onDestinationSelected: (index) {
           switch (index) {
             case 0:
-              _scaffoldKey.currentState?.openDrawer();
+              widget.scaffoldKey.currentState?.openDrawer();
               break;
             case 1:
-              Get.to(role == "premium" ? PremiumScreen() : role == "security" ? SecurityScreen(): WelcomeScreen());
+              Get.to(role == "premium"
+                  ? PremiumScreen()
+                  : role == "security"
+                      ? SecurityScreen()
+                      : WelcomeScreen());
               break;
             case 2:
               Get.to(SupportScreen());

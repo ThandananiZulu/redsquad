@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 
 import 'package:page_route_animator/page_route_animator.dart';
 import 'package:redsquad/view/NavBar.dart';
+import 'package:redsquad/view/PremiumNavbar.dart';
 import 'package:redsquad/view/armedresponse_screen.dart';
 import 'package:redsquad/view/bottomnav.dart';
 import 'package:redsquad/view/community_screen.dart';
@@ -111,7 +112,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      drawer: const NavBar(),
+      drawer: const PremiumNavBar(),
       backgroundColor: Color.fromARGB(255, 253, 244, 244),
       body: Container(
         decoration: BoxDecoration(
@@ -131,7 +132,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
         ),
         child: Column(
           children: [
-           Container(
+            Container(
               alignment: Alignment.topCenter,
               child: Padding(
                 padding: const EdgeInsets.only(top: 55, bottom: 25),
@@ -144,7 +145,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
                 ),
               ),
             ),
-           
+
             //  Text(
             //   'Home',
             //   textAlign: TextAlign.center,
@@ -265,7 +266,9 @@ class _PremiumScreenState extends State<PremiumScreen> {
                             ),
                           ),
                           SizedBox(height: 10),
-                          SizedBox(height: 100, width:150,
+                          SizedBox(
+                            height: 100,
+                            width: 150,
                             child: ElevatedButton(
                               onPressed: () async {
                                 Navigator.push(
@@ -306,7 +309,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
                                   ),
                                 ],
                               ),
-                             ),
+                            ),
                           ),
                         ],
                       ),
@@ -359,7 +362,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
                             ),
                           ),
                           SizedBox(height: 10),
-                           SizedBox(
+                          SizedBox(
                             height: 100,
                             width: 150,
                             child: ElevatedButton(
@@ -404,8 +407,8 @@ class _PremiumScreenState extends State<PremiumScreen> {
                               ),
                             ),
                           ),
-                       SizedBox(height: 10),
-                        SizedBox(
+                          SizedBox(height: 10),
+                          SizedBox(
                             height: 100,
                             width: 150,
                             child: ElevatedButton(
@@ -450,7 +453,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
                               ),
                             ),
                           ),
-                          ],
+                        ],
                       ),
                     ],
                   ),
@@ -460,7 +463,10 @@ class _PremiumScreenState extends State<PremiumScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBarController(), floatingActionButton: SizedBox(
+      bottomNavigationBar: BottomNavigationBarController(
+        scaffoldKey: _scaffoldKey,
+      ),
+      floatingActionButton: SizedBox(
         height: 80,
         child: Container(
           decoration: BoxDecoration(

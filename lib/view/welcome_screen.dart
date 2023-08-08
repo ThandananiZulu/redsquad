@@ -174,7 +174,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     children: [
                       Column(
                         children: [
-                        SizedBox(
+                          SizedBox(
                             width: 150,
                             height: 120,
                             child: ElevatedButton(
@@ -263,11 +263,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               ),
                             ),
                           ),
-  ],
+                        ],
                       ),
                       Column(
                         children: [
-                        SizedBox(
+                          SizedBox(
                             width: 150,
                             height: 120,
                             child: ElevatedButton(
@@ -359,7 +359,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               ),
                             ),
                           ),
-     ],
+                        ],
                       ),
                     ],
                   ),
@@ -369,7 +369,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           ],
         ),
       ),
-      bottomNavigationBar:BottomNavigationBarController(),floatingActionButton: SizedBox(
+      bottomNavigationBar: BottomNavigationBarController(
+        scaffoldKey: _scaffoldKey,
+      ),
+      floatingActionButton: SizedBox(
         height: 80,
         child: Container(
           decoration: BoxDecoration(

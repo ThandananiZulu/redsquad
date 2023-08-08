@@ -138,7 +138,10 @@ class _SupportScreenState extends State<SupportScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBarController(), );
+      bottomNavigationBar: BottomNavigationBarController(
+        scaffoldKey: _scaffoldKey,
+      ),
+    );
   }
 
   Widget buildPlansList() {

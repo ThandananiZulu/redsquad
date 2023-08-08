@@ -119,6 +119,9 @@ class _ArmedresponseScreenState extends State<ArmedresponseScreen> {
           ),
         )
       ],
-      bottomNavigationBar: BottomNavigationBarController(), );
+      bottomNavigationBar: BottomNavigationBarController(
+        scaffoldKey: _scaffoldKey,
+      ),
+    );
   }
 }

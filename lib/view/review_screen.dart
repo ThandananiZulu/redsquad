@@ -139,7 +139,9 @@ class _ReviewScreenState extends State<ReviewScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBarController(),
+      bottomNavigationBar: BottomNavigationBarController(
+        scaffoldKey: _scaffoldKey,
+      ),
     );
   }
 

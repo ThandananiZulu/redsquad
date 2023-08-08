@@ -119,6 +119,9 @@ class _FireresponseScreenState extends State<FireresponseScreen> {
           ),
         )
       ],
-      bottomNavigationBar: BottomNavigationBarController(),  );
+      bottomNavigationBar: BottomNavigationBarController(
+        scaffoldKey: _scaffoldKey,
+      ),
+    );
   }
 }

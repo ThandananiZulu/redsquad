@@ -101,6 +101,9 @@ class _SosScreenState extends State<SosScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBarController(), );
+      bottomNavigationBar: BottomNavigationBarController(
+        scaffoldKey: _scaffoldKey,
+      ),
+    );
   }
 }
