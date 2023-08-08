@@ -7,6 +7,7 @@ import 'package:page_route_animator/page_route_animator.dart';
 import 'package:redsquad/view/NavBar.dart';
 import 'package:redsquad/view/login_screen.dart';
 import 'package:redsquad/view/profile_screen.dart';
+import 'package:redsquad/view/reports_screen.dart';
 import 'package:redsquad/view/security_screen.dart';
 import 'package:redsquad/view/support_screen.dart';
 import 'package:redsquad/view/welcome_screen.dart';
@@ -161,7 +162,7 @@ class _ResponseScreenState extends State<ResponseScreen> {
                       SecurityScreen()); // Navigate to CommunityScreen for "Community" tab
                   break;
                 case 2:
-                  Get.to(SupportScreen());
+                  Get.to(ReportsScreen());
                   break;
                 case 3:
                   Get.to(ProfileScreen(

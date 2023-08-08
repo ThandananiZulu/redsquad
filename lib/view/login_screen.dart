@@ -242,7 +242,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                         color: Colors.white), // White border
                                   ),
                                 ),
-                                onPressed: () {
+                                onPressed: () async {       SessionManager sessionManager =
+                                      new SessionManager();
+                                  await sessionManager.set('role', 'security');
                                   Get.to(SecurityScreen());
                                 },
                                 child: Row(

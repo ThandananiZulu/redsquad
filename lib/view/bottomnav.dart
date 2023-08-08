@@ -3,6 +3,7 @@ import 'package:flutter_session_manager/flutter_session_manager.dart';
 import 'package:get/get.dart';
 import 'package:redsquad/view/premium_screen.dart';
 import 'package:redsquad/view/profile_screen.dart';
+import 'package:redsquad/view/security_screen.dart';
 import 'package:redsquad/view/support_screen.dart';
 import 'package:redsquad/view/welcome_screen.dart'; // Make sure to import the necessary packages
 
@@ -45,7 +46,7 @@ class _BottomNavigationBarControllerState
               _scaffoldKey.currentState?.openDrawer();
               break;
             case 1:
-              Get.to(role == "premium" ? PremiumScreen() : WelcomeScreen());
+              Get.to(role == "premium" ? PremiumScreen() : role == "security" ? SecurityScreen(): WelcomeScreen());
               break;
             case 2:
               Get.to(SupportScreen());

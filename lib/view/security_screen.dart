@@ -8,7 +8,6 @@ import 'package:get/get.dart';
 
 import 'package:page_route_animator/page_route_animator.dart';
 import 'package:redsquad/view/SecurityNavBar.dart';
-import 'package:redsquad/view/bottomnav.dart';
 import 'package:redsquad/view/reports_screen.dart';
 import 'package:redsquad/view/response_screen.dart';
 import 'package:redsquad/view/welcome_screen.dart';
@@ -272,7 +271,51 @@ class _SecurityScreenState extends State<SecurityScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBarController(),   floatingActionButton: SizedBox(
+      bottomNavigationBar: NavigationBarTheme(
+        data: NavigationBarThemeData(
+            indicatorColor: Colors.blue.shade100,
+            labelTextStyle: MaterialStateProperty.all(TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+            ))),
+        child: NavigationBar(
+            height: 60,
+            backgroundColor: Colors.grey.shade300,
+            selectedIndex: index,
+            onDestinationSelected: (index) {
+              switch (index) {
+                case 0:
+                  _scaffoldKey.currentState?.openDrawer();
+                  break;
+                case 1:
+                  Get.to(
+                     ResponseScreen()); // Navigate to CommunityScreen for "Community" tab
+                  break;
+                case 2:
+                  Get.to(
+                      ReportsScreen()); // Navigate to ReviewsScreen for "Reviews" tab
+                  break;
+                case 3:
+                  Get.to(
+                      ProfileScreen()); // Navigate to ProfileScreen for "Profile" tab
+                  break;
+              }
+              setState(() {
+                this.index = index;
+              });
+            },
+            destinations: [
+              NavigationDestination(
+                  icon: Icon(Icons.menu_outlined), label: "Menu"),
+              NavigationDestination(
+                  icon: Icon(Icons.directions_run_outlined), label: "Responses"),
+              NavigationDestination(
+                  icon: Icon(Icons.menu_book_outlined), label: "Reports"),
+              NavigationDestination(
+                  icon: Icon(Icons.person_outlined), label: "Profile")
+            ]),
+      ),
+      floatingActionButton: SizedBox(
         height: 80,
         child: Container(
           decoration: BoxDecoration(
