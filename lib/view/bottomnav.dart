@@ -17,7 +17,7 @@ class _BottomNavigationBarControllerState
     extends State<BottomNavigationBarController> {
   int index = 1; // Default index
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-   String roles = "basic";
+  
   String role = "basic";
   Future<void> getrole() async {
     SessionManager sessionManager = new SessionManager();
