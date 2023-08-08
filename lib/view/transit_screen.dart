@@ -12,14 +12,14 @@ import 'package:redsquad/view/requests_screen.dart';
 import 'package:redsquad/view/support_screen.dart';
 import 'package:redsquad/view/welcome_screen.dart';
 
-class MedicalresponseScreen extends StatefulWidget {
-  const MedicalresponseScreen({Key? key}) : super(key: key);
+class TransitScreen extends StatefulWidget {
+  const TransitScreen({Key? key}) : super(key: key);
 
   @override
-  State<MedicalresponseScreen> createState() => _MedicalresponseScreenState();
+  State<TransitScreen> createState() => _TransitScreenState();
 }
 
-class _MedicalresponseScreenState extends State<MedicalresponseScreen> {
+class _TransitScreenState extends State<TransitScreen> {
   int index = 0;
   final _formKey = GlobalKey<FormState>();
   Map loginData = {"fullname": "", "username": "", "password": ""};
@@ -54,7 +54,7 @@ class _MedicalresponseScreenState extends State<MedicalresponseScreen> {
                 height: 19,
               ),
               Text(
-                'Medical Response',
+                'Cash-In Transit',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 24,
@@ -115,7 +115,7 @@ class _MedicalresponseScreenState extends State<MedicalresponseScreen> {
                 onPressed: () {
                   Get.to(WelcomeScreen());
                 },
-                child: Text("Request Medical Response")),
+                child: Text("Request Cash-In Transit")),
           ),
         )
       ],

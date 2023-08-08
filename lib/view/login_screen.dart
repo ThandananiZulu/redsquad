@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_session_manager/flutter_session_manager.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 import 'package:get/get.dart';
 import 'package:redsquad/controller/login_controller.dart';
 import 'package:redsquad/view/premium_screen.dart';
+import 'package:redsquad/view/security_screen.dart';
 import 'package:redsquad/view/welcome_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -69,11 +71,12 @@ class _LoginScreenState extends State<LoginScreen> {
               Container(
                 alignment: Alignment.topCenter,
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 55, bottom: 55),
+                  padding: const EdgeInsets.only(top: 55, bottom: 25),
                   child: Container(
-                    width: 230,
+                    width: 140,
                     height: 120,
                     alignment: Alignment.center,
+                    color: Colors.white, // Set the background color to white
                     child: Image.asset('assets/logo.png'),
                   ),
                 ),
@@ -82,9 +85,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 'Log In',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
               ),
               Expanded(
                 child: SingleChildScrollView(
@@ -95,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: <Widget>[
-                             Container(
+                          Container(
                             color: Colors
                                 .white, // Add white background to the field
                             child: TextFormField(
@@ -130,14 +133,13 @@ class _LoginScreenState extends State<LoginScreen> {
                               keyboardType: TextInputType.text,
                               decoration: const InputDecoration(
                                 label: Text('Password'),
-                               contentPadding: EdgeInsets.symmetric(
+                                contentPadding: EdgeInsets.symmetric(
                                   vertical:
                                       15, // Adjust the vertical padding as needed
                                   horizontal:
                                       15, // Adjust the horizontal padding as needed
                                 ),
                               ),
-                              
                               onSaved: (value) {
                                 signInData['password'] = value;
                               },
@@ -148,32 +150,39 @@ class _LoginScreenState extends State<LoginScreen> {
                                 return null;
                               },
                             ),
-                          ), const SizedBox(
+                          ),
+                          const SizedBox(
                             height: 45,
                           ),
-                         SizedBox(
+                          SizedBox(
                             width: double.infinity,
                             child: Padding(
-                              padding: const EdgeInsets.all(9.0),
+                              padding: const EdgeInsets.only(
+                                  top: 0, left: 0, bottom: 2.0),
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.blueGrey,
-                                  foregroundColor: Colors.white,
+                                  primary: Colors.blueGrey,
+                                  onPrimary: Colors.white,
                                   elevation: 8,
                                   padding: EdgeInsets.symmetric(
-                                      vertical: 15, horizontal: 30),
+                                      vertical: 10, horizontal: 20),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                    side: BorderSide(
+                                        color: Colors.white), // White border
+                                  ),
                                 ),
-                                onPressed: () {
+                                onPressed: () async {
+                                  SessionManager sessionManager =
+                                      new SessionManager();
+                                  await sessionManager.set('role', 'basic');
                                   Get.to(WelcomeScreen());
                                 },
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Icon(Icons
-                                        .login), // Add your appropriate icon here
-                                    SizedBox(
-                                        width:
-                                            8), // Add some space between icon and text
+                                    Icon(Icons.login),
+                                    SizedBox(width: 8),
                                     Text("Login"),
                                   ],
                                 ),
@@ -183,26 +192,32 @@ class _LoginScreenState extends State<LoginScreen> {
                           SizedBox(
                             width: double.infinity,
                             child: Padding(
-                              padding: const EdgeInsets.all(9.0),
+                              padding: const EdgeInsets.only(
+                                  top: 0, left: 0, bottom: 2.0),
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.red,
-                                  foregroundColor: Colors.white,
+                                  primary: Colors.red,
+                                  onPrimary: Colors.white,
                                   elevation: 8,
                                   padding: EdgeInsets.symmetric(
-                                      vertical: 15, horizontal: 30),
+                                      vertical: 10, horizontal: 20),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                    side: BorderSide(
+                                        color: Colors.white), // White border
+                                  ),
                                 ),
-                                onPressed: () {
+                                onPressed: () async {
+                                   SessionManager sessionManager =
+                                      new SessionManager();
+                                  await sessionManager.set('role', 'premium');
                                   Get.to(PremiumScreen());
                                 },
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Icon(Icons
-                                        .star), // Add your appropriate icon here
-                                    SizedBox(
-                                        width:
-                                            8), // Add some space between icon and text
+                                    Icon(Icons.star),
+                                    SizedBox(width: 8),
                                     Text("Premium"),
                                   ],
                                 ),
@@ -212,33 +227,36 @@ class _LoginScreenState extends State<LoginScreen> {
                           SizedBox(
                             width: double.infinity,
                             child: Padding(
-                              padding: const EdgeInsets.all(9.0),
+                              padding: const EdgeInsets.only(
+                                  top: 0, left: 0, bottom: 2.0),
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.black,
-                                  foregroundColor: Colors.white,
+                                  primary: Colors.black,
+                                  onPrimary: Colors.white,
                                   elevation: 8,
                                   padding: EdgeInsets.symmetric(
-                                      vertical: 15, horizontal: 30),
+                                      vertical: 10, horizontal: 20),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                    side: BorderSide(
+                                        color: Colors.white), // White border
+                                  ),
                                 ),
                                 onPressed: () {
-                                  Get.to(PremiumScreen());
+                                  Get.to(SecurityScreen());
                                 },
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Icon(Icons
-                                        .security), // Add your appropriate icon here
-                                    SizedBox(
-                                        width:
-                                            8), // Add some space between icon and text
+                                    Icon(Icons.security),
+                                    SizedBox(width: 8),
                                     Text("Security"),
                                   ],
                                 ),
                               ),
                             ),
                           ),
- ],
+                        ],
                       ),
                     ),
                   ),

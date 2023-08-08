@@ -5,20 +5,20 @@ import 'package:get/get.dart';
 
 import 'package:page_route_animator/page_route_animator.dart';
 import 'package:redsquad/view/NavBar.dart';
-import 'package:redsquad/view/bottomnav.dart';
 import 'package:redsquad/view/login_screen.dart';
-import 'package:redsquad/view/premium_screen.dart';
+import 'package:redsquad/view/profile_screen.dart';
+import 'package:redsquad/view/security_screen.dart';
 import 'package:redsquad/view/support_screen.dart';
 import 'package:redsquad/view/welcome_screen.dart';
 
-class RequestsScreen extends StatefulWidget {
-  const RequestsScreen({Key? key}) : super(key: key);
+class ReportsScreen extends StatefulWidget {
+  const ReportsScreen({Key? key}) : super(key: key);
 
   @override
-  State<RequestsScreen> createState() => _RequestsScreenState();
+  State<ReportsScreen> createState() => _ReportsScreenState();
 }
 
-class _RequestsScreenState extends State<RequestsScreen> {
+class _ReportsScreenState extends State<ReportsScreen> {
   int index = 0;
   final _formKey = GlobalKey<FormState>();
   String idOrPass = 'ID Number';
@@ -62,7 +62,7 @@ class _RequestsScreenState extends State<RequestsScreen> {
               height: 8,
             ),
             Text(
-              'My Requests',
+              'My Reports',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 24,
@@ -80,13 +80,13 @@ class _RequestsScreenState extends State<RequestsScreen> {
                         width: 330, // Adjust the width as needed
                         child: DropdownButtonFormField<String>(
                           decoration: InputDecoration(
-                            labelText: 'Select Type Of Request:',
+                            labelText: 'Select Type Of Reports:',
                           ),
                           value: dropdownValue,
                           onSaved: (String? value) {},
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'A type of request is required';
+                              return 'A type of report is required';
                             }
                             return null;
                           },
@@ -140,7 +140,48 @@ class _RequestsScreenState extends State<RequestsScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBarController(),   );
+      bottomNavigationBar: NavigationBarTheme(
+        data: NavigationBarThemeData(
+            indicatorColor: Colors.blue.shade100,
+            labelTextStyle: MaterialStateProperty.all(TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+            ))),
+        child: NavigationBar(
+            height: 60,
+            backgroundColor: Colors.grey.shade300,
+            selectedIndex: index,
+            onDestinationSelected: (index) {
+              switch (index) {
+                case 0:
+                  _scaffoldKey.currentState?.openDrawer();
+                  break;
+                case 1:
+                  Get.to(
+                      SecurityScreen()); // Navigate to CommunityScreen for "Community" tab
+                  break;
+                case 2:
+                  Get.to(SupportScreen());
+                  break;
+                case 3:
+                  Get.to(ProfileScreen(
+              
+                  )); // Navigate to ProfileScreen for "Profile" tab
+                  break;
+              }
+              setState(() {
+                this.index = index;
+              });
+            },
+            destinations: [
+              NavigationDestination(icon: Icon(Icons.menu), label: "Menu"),
+              NavigationDestination(icon: Icon(Icons.home), label: "Home"),
+              NavigationDestination(
+                  icon: Icon(Icons.menu_book), label: "Support"),
+              NavigationDestination(icon: Icon(Icons.person), label: "Profile")
+            ]),
+      ),
+    );
   }
 
   Widget buildPlansList() {
@@ -184,7 +225,7 @@ class _RequestsScreenState extends State<RequestsScreen> {
         PlanTile(
           icon: Icons.menu_book,
           title: 'Reference: ${planName}',
-          subtitle: 'Date of request:  ${firstname} ${surname}',
+          subtitle: 'Date of report:  ${firstname} ${surname}',
           desc: ' ${cover}',
           status: 'Active',
           map: '',
@@ -278,11 +319,11 @@ class _PlanTileState extends State<PlanTile> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _buildLabel("Description of request:"),
+                _buildLabel("Description of report:"),
                 SizedBox(height: 8),
                 _buildDescriptionTextField(widget.desc),
                 SizedBox(height: 16.0),
-                _buildLabel("Request Status:"),
+                _buildLabel("Report Status:"),
                 SizedBox(height: 8),
                 _buildStatusPill(widget.status),
                 SizedBox(height: 16.0),

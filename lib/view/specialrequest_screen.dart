@@ -7,7 +7,9 @@ import 'package:intl/intl.dart';
 
 import 'package:page_route_animator/page_route_animator.dart';
 import 'package:redsquad/view/NavBar.dart';
+import 'package:redsquad/view/bottomnav.dart';
 import 'package:redsquad/view/login_screen.dart';
+import 'package:redsquad/view/profile_screen.dart';
 import 'package:redsquad/view/requests_screen.dart';
 import 'package:redsquad/view/support_screen.dart';
 import 'package:redsquad/view/welcome_screen.dart';
@@ -173,48 +175,6 @@ class _SpecialrequestScreenState extends State<SpecialrequestScreen> {
           ),
         )
       ],
-      bottomNavigationBar: NavigationBarTheme(
-        data: NavigationBarThemeData(
-            indicatorColor: Colors.blue.shade100,
-            labelTextStyle: MaterialStateProperty.all(TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-            ))),
-        child: NavigationBar(
-            height: 60,
-            backgroundColor: Colors.grey.shade300,
-            selectedIndex: index,
-            onDestinationSelected: (index) {
-              switch (index) {
-                case 0:
-                  _scaffoldKey.currentState?.openDrawer();
-                  break;
-                case 1:
-                  Get.to(
-                      WelcomeScreen()); // Navigate to CommunityScreen for "Community" tab
-                  break;
-                case 2:
-                  Get.to(
-                      SupportScreen()); // Navigate to ReviewsScreen for "Reviews" tab
-                  break;
-                case 3:
-                  Get.to(LoginScreen(
-                    data: {},
-                  )); // Navigate to ProfileScreen for "Profile" tab
-                  break;
-              }
-              setState(() {
-                this.index = index;
-              });
-            },
-            destinations: [
-              NavigationDestination(icon: Icon(Icons.menu), label: "Menu"),
-              NavigationDestination(icon: Icon(Icons.home), label: "Home"),
-              NavigationDestination(
-                  icon: Icon(Icons.menu_book), label: "Support"),
-              NavigationDestination(icon: Icon(Icons.person), label: "Profile")
-            ]),
-      ),
-    );
+      bottomNavigationBar: BottomNavigationBarController(), );
   }
 }

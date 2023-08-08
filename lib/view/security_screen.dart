@@ -7,29 +7,23 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 import 'package:page_route_animator/page_route_animator.dart';
-import 'package:redsquad/view/NavBar.dart';
-import 'package:redsquad/view/armedresponse_screen.dart';
+import 'package:redsquad/view/SecurityNavBar.dart';
 import 'package:redsquad/view/bottomnav.dart';
-import 'package:redsquad/view/community_screen.dart';
-import 'package:redsquad/view/fireresponse_screen.dart';
-import 'package:redsquad/view/login_screen.dart';
-import 'package:redsquad/view/medicalresponse_screen.dart';
-import 'package:redsquad/view/privateescort_screen.dart';
+import 'package:redsquad/view/reports_screen.dart';
+import 'package:redsquad/view/response_screen.dart';
+import 'package:redsquad/view/welcome_screen.dart';
 import 'package:redsquad/view/profile_screen.dart';
-import 'package:redsquad/view/requests_screen.dart';
-import 'package:redsquad/view/review_screen.dart';
 import 'package:redsquad/view/sos_screen.dart';
-import 'package:redsquad/view/specialrequest_screen.dart';
 import 'package:redsquad/view/support_screen.dart';
 
-class WelcomeScreen extends StatefulWidget {
-  const WelcomeScreen({Key? key}) : super(key: key);
+class SecurityScreen extends StatefulWidget {
+  const SecurityScreen({Key? key}) : super(key: key);
 
   @override
-  State<WelcomeScreen> createState() => _WelcomeScreenState();
+  State<SecurityScreen> createState() => _SecurityScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
+class _SecurityScreenState extends State<SecurityScreen> {
   int index = 0;
   final _formKey = GlobalKey<FormState>();
   Map loginData = {"fullname": "", "username": "", "password": ""};
@@ -108,13 +102,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      drawer: const NavBar(),
+      drawer: const SecurityNavBar(),
       backgroundColor: const Color.fromARGB(255, 244, 245, 253),
       body: Container(
         decoration: BoxDecoration(
           image: isImageVisible
               ? DecorationImage(
-                  image: AssetImage('assets/back2.jpeg'),
+                  image: const AssetImage('assets/security.jpeg'),
                   fit: BoxFit.cover,
                   colorFilter: ColorFilter.mode(
                     const Color.fromARGB(255, 255, 255, 255).withOpacity(
@@ -129,21 +123,19 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         child: Column(
           children: [
             Container(
-              alignment: Alignment.topCenter,
-              child: Padding(
-                padding: const EdgeInsets.only(top: 55, bottom: 25),
-                child: Container(
-                  width: 140,
-                  height: 120,
-                  alignment: Alignment.center,
-                  color: Colors.white, // Set the background color to white
-                  child: Image.asset('assets/logo.png'),
+                alignment: Alignment.topCenter,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 55, bottom: 25),
+                  child: Container(
+                    width: 140,
+                    height: 120,
+                    alignment: Alignment.center,
+                    color: Colors.white, // Set the background color to white
+                    child: Image.asset('assets/logo.png'),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 19,
-            ),
+         
             //  Text(
             //   'Home',
             //   textAlign: TextAlign.center,
@@ -153,7 +145,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             //   ),
             // ),
             SizedBox(
-              height: 9,
+              height: 12,
             ),
             Text(
               "Hi Thokozani Xulu",
@@ -166,7 +158,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             Expanded(
               flex: 3,
               child: Padding(
-                padding: EdgeInsets.only(top: 35),
+                padding: EdgeInsets.only(top: 45),
                 child: Container(
                   alignment: Alignment.center,
                   child: Row(
@@ -182,7 +174,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                 Navigator.push(
                                   context,
                                   PageRouteAnimator(
-                                    child: const MedicalresponseScreen(),
+                                    child: const ResponseScreen(),
                                     routeAnimation:
                                         RouteAnimation.topToBottomWithScale,
                                     settings: const RouteSettings(),
@@ -203,12 +195,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Icon(
-                                    Icons.local_hospital_outlined,
+                                    Icons.directions_run,
                                     size: 80,
-                                    color: Colors.red.shade800,
+                                    color: Colors.black,
                                   ),
                                   Text(
-                                    "Medical Response",
+                                    "Response",
                                     style: const TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
@@ -219,51 +211,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             ),
                           ),
                           SizedBox(height: 10),
-                          SizedBox(
-                            width: 150,
-                            height: 120,
-                            child: ElevatedButton(
-                              onPressed: () async {
-                                Navigator.push(
-                                  context,
-                                  PageRouteAnimator(
-                                    child: const ArmedresponseScreen(),
-                                    routeAnimation:
-                                        RouteAnimation.topToBottomWithScale,
-                                    settings: const RouteSettings(),
-                                    curve: Curves.slowMiddle,
-                                    duration: const Duration(milliseconds: 500),
-                                    reverseDuration:
-                                        const Duration(milliseconds: 200),
-                                  ),
-                                );
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.security_outlined,
-                                    size: 80,
-                                    color: Colors.red.shade800,
-                                  ),
-                                  Text(
-                                    "Armed Response",
-                                    style: const TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-  ],
+       ],
                       ),
                       Column(
                         children: [
@@ -275,7 +223,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                 Navigator.push(
                                   context,
                                   PageRouteAnimator(
-                                    child: const FireresponseScreen(),
+                                    child: const ReportsScreen(),
                                     routeAnimation:
                                         RouteAnimation.topToBottomWithScale,
                                     settings: const RouteSettings(),
@@ -296,13 +244,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                 children: [
                                   const SizedBox(height: 6),
                                   Icon(
-                                    Icons.fire_extinguisher_outlined,
+                                    Icons.report_outlined,
                                     size: 80,
-                                    color: Colors.red.shade800,
+                                    color: Colors.black,
                                   ),
                                   const SizedBox(height: 6),
                                   Text(
-                                    "Fire Response",
+                                    "Reports",
                                     style: const TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
@@ -314,52 +262,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             ),
                           ),
                           SizedBox(height: 10),
-                          SizedBox(
-                            height: 120,
-                            width: 150,
-                            child: ElevatedButton(
-                              onPressed: () async {
-                                Navigator.push(
-                                  context,
-                                  PageRouteAnimator(
-                                    child: const SpecialrequestScreen(),
-                                    routeAnimation:
-                                        RouteAnimation.topToBottomWithScale,
-                                    settings: const RouteSettings(),
-                                    curve: Curves.slowMiddle,
-                                    duration: const Duration(milliseconds: 500),
-                                    reverseDuration:
-                                        const Duration(milliseconds: 200),
-                                  ),
-                                );
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.add_circle_outline,
-                                    size: 80,
-                                    color: Colors.red.shade800,
-                                  ),
-                                  const SizedBox(height: 1),
-                                  Text(
-                                    "Special Request",
-                                    style: const TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-     ],
+                            ],
                       ),
                     ],
                   ),
@@ -369,7 +272,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           ],
         ),
       ),
-      bottomNavigationBar:BottomNavigationBarController(),floatingActionButton: SizedBox(
+      bottomNavigationBar: BottomNavigationBarController(),   floatingActionButton: SizedBox(
         height: 80,
         child: Container(
           decoration: BoxDecoration(
@@ -405,3 +308,4 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         fontSize: 18,
       );
 }
+

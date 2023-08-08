@@ -8,9 +8,13 @@ import 'package:get/get.dart';
 
 import 'package:page_route_animator/page_route_animator.dart';
 import 'package:redsquad/view/NavBar.dart';
+import 'package:redsquad/view/armedresponse_screen.dart';
+import 'package:redsquad/view/bottomnav.dart';
 import 'package:redsquad/view/community_screen.dart';
+import 'package:redsquad/view/fireresponse_screen.dart';
 
 import 'package:redsquad/view/medicalresponse_screen.dart';
+import 'package:redsquad/view/privateescort_screen.dart';
 
 import 'package:redsquad/view/profile_screen.dart';
 import 'package:redsquad/view/requests_screen.dart';
@@ -18,6 +22,8 @@ import 'package:redsquad/view/requests_screen.dart';
 import 'package:redsquad/view/sos_screen.dart';
 import 'package:redsquad/view/specialrequest_screen.dart';
 import 'package:redsquad/view/support_screen.dart';
+import 'package:redsquad/view/transit_screen.dart';
+import 'package:redsquad/view/welcome_screen.dart';
 
 class PremiumScreen extends StatefulWidget {
   const PremiumScreen({Key? key}) : super(key: key);
@@ -125,18 +131,20 @@ class _PremiumScreenState extends State<PremiumScreen> {
         ),
         child: Column(
           children: [
-            Padding(
-              padding: EdgeInsets.only(top: 53),
-              child: Container(
-                width: 170,
-                height: 120,
-                alignment: Alignment.center,
-                child: Image.asset('assets/logo.png'),
+           Container(
+              alignment: Alignment.topCenter,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 55, bottom: 25),
+                child: Container(
+                  width: 140,
+                  height: 120,
+                  alignment: Alignment.center,
+                  color: Colors.white, // Set the background color to white
+                  child: Image.asset('assets/logo.png'),
+                ),
               ),
             ),
-            SizedBox(
-              height: 19,
-            ),
+           
             //  Text(
             //   'Home',
             //   textAlign: TextAlign.center,
@@ -149,16 +157,17 @@ class _PremiumScreenState extends State<PremiumScreen> {
               height: 9,
             ),
             Text(
-              "What's your emergency?",
+              "Hi Thokozani Xulu",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 17,
+                fontWeight: FontWeight.bold,
               ),
             ),
             Expanded(
               flex: 3,
               child: Padding(
-                padding: EdgeInsets.only(top: 55),
+                padding: EdgeInsets.only(top: 25),
                 child: Container(
                   alignment: Alignment.center,
                   child: Row(
@@ -197,7 +206,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
                                   Icon(
                                     Icons.local_hospital_outlined,
                                     size: 65,
-                                    color: Colors.red.shade800,
+                                    color: Colors.amber.shade800,
                                   ),
                                   Text(
                                     "Medical Response",
@@ -219,7 +228,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
                                 Navigator.push(
                                   context,
                                   PageRouteAnimator(
-                                    child: const MedicalresponseScreen(),
+                                    child: const ArmedresponseScreen(),
                                     routeAnimation:
                                         RouteAnimation.topToBottomWithScale,
                                     settings: const RouteSettings(),
@@ -242,7 +251,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
                                   Icon(
                                     Icons.security_outlined,
                                     size: 65,
-                                    color: Colors.red.shade800,
+                                    color: Colors.amber.shade800,
                                   ),
                                   Text(
                                     "Armed Response",
@@ -262,7 +271,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
                                 Navigator.push(
                                   context,
                                   PageRouteAnimator(
-                                    child: const MedicalresponseScreen(),
+                                    child: const TransitScreen(),
                                     routeAnimation:
                                         RouteAnimation.topToBottomWithScale,
                                     settings: const RouteSettings(),
@@ -285,7 +294,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
                                   Icon(
                                     Icons.payments_outlined,
                                     size: 65,
-                                    color: Colors.red.shade800,
+                                    color: Colors.amber.shade800,
                                   ),
                                   const SizedBox(height: 1),
                                   Text(
@@ -311,7 +320,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
                                 Navigator.push(
                                   context,
                                   PageRouteAnimator(
-                                    child: const MedicalresponseScreen(),
+                                    child: const FireresponseScreen(),
                                     routeAnimation:
                                         RouteAnimation.topToBottomWithScale,
                                     settings: const RouteSettings(),
@@ -334,7 +343,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
                                   Icon(
                                     Icons.fire_extinguisher_outlined,
                                     size: 65,
-                                    color: Colors.red.shade800,
+                                    color: Colors.amber.shade800,
                                   ),
                                   const SizedBox(height: 6),
                                   Text(
@@ -350,7 +359,53 @@ class _PremiumScreenState extends State<PremiumScreen> {
                             ),
                           ),
                           SizedBox(height: 10),
-                          SizedBox(
+                           SizedBox(
+                            height: 100,
+                            width: 150,
+                            child: ElevatedButton(
+                              onPressed: () async {
+                                Navigator.push(
+                                  context,
+                                  PageRouteAnimator(
+                                    child: const PrivateescortScreen(),
+                                    routeAnimation:
+                                        RouteAnimation.topToBottomWithScale,
+                                    settings: const RouteSettings(),
+                                    curve: Curves.slowMiddle,
+                                    duration: const Duration(milliseconds: 500),
+                                    reverseDuration:
+                                        const Duration(milliseconds: 200),
+                                  ),
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.airline_seat_recline_extra_outlined,
+                                    size: 65,
+                                    color: Colors.amber.shade800,
+                                  ),
+                                  const SizedBox(height: 1),
+                                  Text(
+                                    "Private Escort",
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                       SizedBox(height: 10),
+                        SizedBox(
                             height: 100,
                             width: 150,
                             child: ElevatedButton(
@@ -381,7 +436,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
                                   Icon(
                                     Icons.add_circle_outline,
                                     size: 65,
-                                    color: Colors.red.shade800,
+                                    color: Colors.amber.shade800,
                                   ),
                                   const SizedBox(height: 1),
                                   Text(
@@ -395,53 +450,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 10),
-                          SizedBox(
-                            height: 100,
-                            width: 150,
-                            child: ElevatedButton(
-                              onPressed: () async {
-                                Navigator.push(
-                                  context,
-                                  PageRouteAnimator(
-                                    child: const SpecialrequestScreen(),
-                                    routeAnimation:
-                                        RouteAnimation.topToBottomWithScale,
-                                    settings: const RouteSettings(),
-                                    curve: Curves.slowMiddle,
-                                    duration: const Duration(milliseconds: 500),
-                                    reverseDuration:
-                                        const Duration(milliseconds: 200),
-                                  ),
-                                );
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.airline_seat_recline_extra_outlined,
-                                    size: 65,
-                                    color: Colors.red.shade800,
-                                  ),
-                                  const SizedBox(height: 1),
-                                  Text(
-                                    "Private Escort",
-                                    style: const TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
+                          ],
                       ),
                     ],
                   ),
@@ -451,51 +460,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: NavigationBarTheme(
-        data: NavigationBarThemeData(
-            indicatorColor: Colors.blue.shade100,
-            labelTextStyle: MaterialStateProperty.all(TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-            ))),
-        child: NavigationBar(
-            height: 60,
-            backgroundColor: Colors.grey.shade300,
-            selectedIndex: index,
-            onDestinationSelected: (index) {
-              switch (index) {
-                case 0:
-                  _scaffoldKey.currentState?.openDrawer();
-                  break;
-                case 1:
-                  Get.to(
-                      CommunityScreen()); // Navigate to CommunityScreen for "Community" tab
-                  break;
-                case 2:
-                  Get.to(
-                      SupportScreen()); // Navigate to ReviewsScreen for "Reviews" tab
-                  break;
-                case 3:
-                  Get.to(
-                      ProfileScreen()); // Navigate to ProfileScreen for "Profile" tab
-                  break;
-              }
-              setState(() {
-                this.index = index;
-              });
-            },
-            destinations: [
-              NavigationDestination(
-                  icon: Icon(Icons.menu_outlined), label: "Menu"),
-              NavigationDestination(
-                  icon: Icon(Icons.home_outlined), label: "Home"),
-              NavigationDestination(
-                  icon: Icon(Icons.menu_book_outlined), label: "Support"),
-              NavigationDestination(
-                  icon: Icon(Icons.person_outlined), label: "Profile")
-            ]),
-      ),
-      floatingActionButton: SizedBox(
+      bottomNavigationBar: BottomNavigationBarController(), floatingActionButton: SizedBox(
         height: 80,
         child: Container(
           decoration: BoxDecoration(
