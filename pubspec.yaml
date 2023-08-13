@@ -112,6 +112,9 @@ flutter:
     - assets/back2.jpeg
     - assets/premium.jpeg
     - assets/security.jpeg
+    - assets/basiccard.jpeg
+    - assets/seccard.jpeg
+    - assets/premiumcard.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

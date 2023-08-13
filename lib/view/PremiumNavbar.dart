@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_session_manager/flutter_session_manager.dart';
 import 'package:redsquad/view/armedresponse_screen.dart';
+import 'package:redsquad/view/cards/premium_card_screen.dart';
 import 'package:redsquad/view/community_screen.dart';
 import 'package:redsquad/view/fireresponse_screen.dart';
 import 'package:redsquad/view/medicalresponse_screen.dart';
+import 'package:redsquad/view/pay_screen.dart';
 import 'package:redsquad/view/premium_screen.dart';
 import 'package:redsquad/view/privateescort_screen.dart';
 import 'package:redsquad/view/profile_screen.dart';
@@ -24,18 +26,41 @@ class PremiumNavBar extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const SizedBox(
-            height: 25,
-          ),
-          const ListTile(
-            title: Center(
-              child: Text(''
-                  'MENU'),
+         SizedBox(
+            height: 166,
+            child: DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                image: DecorationImage(
+                  image: AssetImage(
+                      "assets/premium.jpeg"), // Replace with your image path
+                  fit: BoxFit.cover,
+                  colorFilter: ColorFilter.mode(
+                    Colors.white.withOpacity(
+                        0.3), // Adjust the opacity to control fading
+                    BlendMode.dstATop,
+                  ),
+                ),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    radius: 40, // Customize the radius as needed
+                    backgroundImage:
+                        AssetImage("assets/profile.jpeg"), // Your image path
+                  ),
+                  SizedBox(height: 10), // Adjust the spacing as needed
+                  Text("Thulani Xulu", style: TextStyle(fontSize: 16)),
+                  // Add more text or widgets as needed
+                ],
+              ),
             ),
-            subtitle: Center(child: Text("RED SQUAD SECURITY")),
           ),
+        
           const SizedBox(
-            height: 20,
+            height: 8,
           ),
           // ListTile(
           //   leading: Icon(Icons.home),
@@ -43,27 +68,27 @@ class PremiumNavBar extends StatelessWidget {
           //   onTap: () => Navigator.of(context).push(MaterialPageRoute(
           //       builder: (context) => const PremiumScreen())), //SignOut Page
           // ),
-          ListTile(
-            leading: Icon(Icons.book_online),
-            title: const Text('Armed Response'),
-            onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) =>
-                    const ArmedresponseScreen())), //SignOut Page
-          ),
-          ListTile(
-            leading: Icon(Icons.inventory_rounded),
-            title: const Text('Medical Response'),
-            onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) =>
-                    const MedicalresponseScreen())), //SignOut Page
-          ),
-          ListTile(
-            leading: Icon(Icons.price_check_outlined),
-            title: const Text('Fire Response'),
-            onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) =>
-                    const FireresponseScreen())), //SignOut Page
-          ),
+          // ListTile(
+          //   leading: Icon(Icons.book_online),
+          //   title: const Text('Armed Response'),
+          //   onTap: () => Navigator.of(context).push(MaterialPageRoute(
+          //       builder: (context) =>
+          //           const ArmedresponseScreen())), //SignOut Page
+          // ),
+          // ListTile(
+          //   leading: Icon(Icons.inventory_rounded),
+          //   title: const Text('Medical Response'),
+          //   onTap: () => Navigator.of(context).push(MaterialPageRoute(
+          //       builder: (context) =>
+          //           const MedicalresponseScreen())), //SignOut Page
+          // ),
+          // ListTile(
+          //   leading: Icon(Icons.price_check_outlined),
+          //   title: const Text('Fire Response'),
+          //   onTap: () => Navigator.of(context).push(MaterialPageRoute(
+          //       builder: (context) =>
+          //           const FireresponseScreen())), //SignOut Page
+          // ),
           ListTile(
             leading: Icon(Icons.view_agenda_outlined),
             title: const Text('Private Escort'),
@@ -107,11 +132,19 @@ class PremiumNavBar extends StatelessWidget {
             //Home Page
           ),
           ListTile(
-            leading: Icon(Icons.person),
-            title: const Text('Profile'),
+            leading: Icon(Icons.credit_score_outlined),
+            title: const Text('Pay'),
             onTap: () => Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
-                    builder: (context) => ProfileScreen())), //SignOut Page
+                    builder: (context) => PayScreen())), //SignOut Page
+            //Home Page
+          ),
+          ListTile(
+            leading: Icon(Icons.card_membership_outlined),
+            title: const Text('Virtual Card'),
+            onTap: () => Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                    builder: (context) => PremiumCardScreen())), //SignOut Page
             //Home Page
           ),
           ListTile(

@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_session_manager/flutter_session_manager.dart';
 import 'package:redsquad/view/armedresponse_screen.dart';
+import 'package:redsquad/view/cards/basic_card_screen.dart';
 import 'package:redsquad/view/community_screen.dart';
 import 'package:redsquad/view/fireresponse_screen.dart';
 import 'package:redsquad/view/medicalresponse_screen.dart';
-import 'package:redsquad/view/privateescort_screen.dart';
-import 'package:redsquad/view/profile_screen.dart';
+import 'package:redsquad/view/pay_screen.dart';
 import 'package:redsquad/view/requests_screen.dart';
 import 'package:redsquad/view/review_screen.dart';
-import 'package:redsquad/view/welcome_screen.dart';
+
 
 import 'login_screen.dart';
 
@@ -23,26 +23,43 @@ class NavBar extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const SizedBox(
-            height: 25,
-          ),
-          const ListTile(
-            title: Center(
-              child: Text(''
-                  'MENU'),
+          
+          SizedBox(
+          height: 166,
+            child: DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  image: DecorationImage(
+            image: AssetImage("assets/back2.jpeg"), // Replace with your image path
+            fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(
+              Colors.white.withOpacity(0.3), // Adjust the opacity to control fading
+              BlendMode.dstATop,
             ),
-            subtitle: Center(child: Text("RED SQUAD SECURITY")),
+                  ),
+                ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    radius: 40, // Customize the radius as needed
+                    backgroundImage:
+                        AssetImage("assets/profile.jpeg"), // Your image path
+                  ),
+                  SizedBox(height: 10), // Adjust the spacing as needed
+                  Text("Thulani Xulu", style: TextStyle(fontSize: 16)),
+                  // Add more text or widgets as needed
+                ],
+              ),
+            ),
           ),
+          
           const SizedBox(
-            height: 20,
+            height: 10,
           ),
+         
           ListTile(
-            leading: Icon(Icons.home),
-            title: const Text('Home'),
-            onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) =>
-                    const WelcomeScreen())), //SignOut Page
-          ), ListTile(
             leading: Icon(Icons.book_online),
             title: const Text('Armed Response'),
             onTap: () => Navigator.of(context).push(MaterialPageRoute(
@@ -86,11 +103,19 @@ class NavBar extends StatelessWidget {
             //Home Page
           ),
           ListTile(
-            leading: Icon(Icons.person),
-            title: const Text('Profile'),
+            leading: Icon(Icons.credit_score_outlined),
+            title: const Text('Pay'),
             onTap: () => Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
-                    builder: (context) => ProfileScreen())), //SignOut Page
+                    builder: (context) => PayScreen())), //SignOut Page
+            //Home Page
+          ),
+           ListTile(
+            leading: Icon(Icons.card_membership_outlined),
+            title: const Text('Virtual Card'),
+            onTap: () => Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                    builder: (context) => BasicCardScreen())), //SignOut Page
             //Home Page
           ),
           ListTile(
